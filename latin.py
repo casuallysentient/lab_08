@@ -5,7 +5,7 @@ def format_latin_text(unformatted_latin_text):
     :param unformatted_latin_text: A string containing Latin text
     :return: A string containing properly formatted Latin
     """
-    pass
+    return unformatted_latin_text.upper().replace("U", "V")
 
 
 def get_unformatted_text(file_path):
@@ -15,7 +15,13 @@ def get_unformatted_text(file_path):
     :param file_path: A string representing the name and path of the txt file
     :return: A list of strings
     """
-    pass
+    try:
+        file = open("imperatoria_verba.txt", "r")
+        words = file.read()
+        file.close()
+        return words
+    except FileNotFoundError:
+        return ""
 
 
 def write_formatted_latin_file(input_file_path, output_file_path="output.txt"):
@@ -26,7 +32,12 @@ def write_formatted_latin_file(input_file_path, output_file_path="output.txt"):
     :param output_file_path: A string containing the name and path of the formatted txt file to be created.
     :return:
     """
-    pass
+    unformatted_string = get_unformatted_text(input_file_path)
+    formatted_string = format_latin_text(unformatted_string)
+    file = open(output_file_path, "w")
+    file.write(formatted_string)
+    print(formatted_string)
+    file.close()
 
 
 def main():
