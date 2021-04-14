@@ -16,10 +16,11 @@ def get_unformatted_text(file_path):
     :return: A list of strings
     """
     try:
-        file = open("imperatoria_verba.txt", "r")
-        words = file.read()
+        file = open(file_path, "r")
+        words = list(file.readlines())
+        new_words = [s.strip() for s in words]
         file.close()
-        return words
+        return new_words
     except FileNotFoundError:
         return ""
 
@@ -33,10 +34,11 @@ def write_formatted_latin_file(input_file_path, output_file_path="output.txt"):
     :return:
     """
     unformatted_string = get_unformatted_text(input_file_path)
-    formatted_string = format_latin_text(unformatted_string)
     file = open(output_file_path, "w")
-    file.write(formatted_string)
-    print(formatted_string)
+    for x in range(len(unformatted_string)):
+        formatted_string = format_latin_text(unformatted_string[x])
+        file.write(formatted_string + "\n")
+        print(formatted_string)
     file.close()
 
 
@@ -45,6 +47,7 @@ def main():
     Just some sample behavior based on the README. Feel free to add tests for the other functions!
     """
     write_formatted_latin_file(input_file_path="imperatoria_verba.txt", output_file_path="formatted_text.txt")
+
 
 # DO NOT WRITE CODE BELOW THIS LINE
 

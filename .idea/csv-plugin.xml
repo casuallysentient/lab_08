@@ -38,6 +38,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\latin.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\most_exclusive_school.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\schools.csv">
           <value>
             <Attribute>
